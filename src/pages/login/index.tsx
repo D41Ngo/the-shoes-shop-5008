@@ -1,4 +1,4 @@
-import React from "react";
+import { useAppSelector } from "src/redux/config-store";
 
 function Login() {
   return <div>Login</div>;
