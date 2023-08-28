@@ -2,6 +2,7 @@ import { getLocalStorage } from "src/utils";
 import { axiosWithAuth, axiosWithoutAuth } from "./config.service";
 import axios from "axios";
 import { ACCESS_TOKEN } from "src/constants";
+import { TParamsRegister } from "src/pages/register";
 
 export const userLogin = async (data: { email: string; password: string }) => {
   try {
@@ -39,4 +40,17 @@ const getOrder = async () => {
     url: "/Users/getOrder",
     method: "post",
   });
+};
+
+export const signup = async (data: TParamsRegister) => {
+  try {
+    const resp = await axiosWithoutAuth({
+      method: "post",
+      url: "/Users/signup",
+      data,
+    });
+    return resp.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
